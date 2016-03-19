@@ -1,0 +1,64 @@
+vagrant_config:
+  vm:
+    # Don't change boxes unless confident with setting up Vagrant
+    box: ubuntu/trusty64
+    parallels-box: parallels/ubuntu-14.04
+    name: Magento 2 Dev
+    # Hostname: Also used for postfix mailname
+    hostname: mage2.dev
+    memory: 2048
+    cpus: 1
+  network:
+    # IP Address: Ensure to set your local host file to point the Magento base url (magento:config:base_url) to this IP (and that IP is available)
+    ip_address: 192.168.50.4
+    # Sync Type:
+    # On OS X 'nfs' is installed by default and provides best performance
+    # On Linux ensure the 'nfsd' package is installed to use 'nfs' or switch to 'default' (not recommended as less performant)
+    # On Windows use 'smb' or 'default' (not recommended as less performant)
+    sync_type: nfs
+    # Local filesystem directory to sync (where Magento 2 will be installed on your machine)
+    sync_dir: ~/Sites/mage2.dev
+  db:
+    root_password: root
+magento:
+  # Below config (under setup) all required even if not using CLI install (required for NGINX / MySQL conf etc.)
+  setup:
+    # Base url: IMPORTANT should be excluding http:// and trailing / e.g. for http://www.magento.com/ use www.magento.com
+    base_url: mage2.dev
+    db_host: localhost
+    db_name: mage2dev
+    db_user: mage2dev
+    # If db_user is set as 'root', db_password value below will ignored as vagrant_config:db:root_password value above will be used
+    db_password: password1
+    # Install Magento via CLI? If 'no' visit http://hostname/setup to install once VM ready
+    # Sample data: y or n (http://devdocs.magento.com/guides/v2.0/install-gde/install/web/install-web-sample-data.html)
+    sampledata: n
+    # Mode: deafult, developer, production (http://devdocs.magento.com/guides/v2.0/config-guide/bootstrap/magento-modes.html)
+    mode: developer
+    cli_install: y
+  # Below config (under install) only required if magento:config:cli_install above is set to 'y'
+  install:
+    admin_firstname: Admin
+    admin_lastname: User
+    admin_email: admin@example.com
+    admin_user: admin
+    # Password must contain a mix of at least 7 alpha-numeric characters
+    admin_password: password1
+    # Admin url path
+    backend_frontname: admin
+    default_country: GB
+    currency: GBP
+    language: en_GB
+    timezone: Europe/London
+    session_save: files
+    use_rewrites: 1
+    admin_session_lifetime: 7200
+  auth:
+    # Magento repo auth (required for Magento 2 composer install) (see http://devdocs.magento.com/guides/v2.0/install-gde/prereq/connect-auth.html)
+    magentousername:
+    magentopassword:
+    # Github Oauth token (required for Magento 2 composer install) (see https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
+    githuboauth:
+extras:
+  # Install xdebug: y or n
+  xdebug: y
