@@ -2,7 +2,7 @@
 
 A Vagrant setup for a fully featured Magento 2 CE development environment
 
-> Note: still in early stages, no installation instructions are currently provided, use at your own risk!
+> Note: still in early stages, only basic installation instructions are provided, use at your own risk!
 
 ## Server details
 * Ubuntu Trusty 14.04
