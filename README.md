@@ -18,13 +18,14 @@ A Vagrant setup for a fully featured Magento 2 CE development environment
 
 ### Prerequisites
 * Install [Virtualbox](https://www.virtualbox.org) (v5.x)
-* Install [Vagrant](https://www.vagrantup.com/docs/installation/)
+* Install [Vagrant](https://www.vagrantup.com/docs/installation/) (v1.8.4+)
+> IMPORTANT: this will NOT work with any version of Vagrant lower than the version mentioned above due to incompatible changes in Ubuntu Xenial
 * Install tools to manage SSH (Windows only)
 	* e.g. [Git Bash](https://git-for-windows.github.io), [Cygwin](https://www.cygwin.com) or [PuTTY and PuTTYGen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 ### Configuration
 * Clone this repository to your machine, wherever you'd like to manage your Vagrant box / Magento 2 codebase from
-* Copy `setup/config.yaml.sample` to `setup/config.yaml` and open in a text editor
+* Copy [setup/config.yaml.sample](setup/config.yaml.sample) to `setup/config.yaml` and open in a text editor
 * Add Magento repo and Github Oauth keys (these are required in order for the composer install to run successfully)
 	* http://devdocs.magento.com/guides/v2.0/install-gde/prereq/connect-auth.html
 	* https://help.github.com/articles/creating-an-access-token-for-command-line-use/
