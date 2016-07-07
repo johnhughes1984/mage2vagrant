@@ -1,0 +1,34 @@
+vm:
+  name: Magento 2 Dev
+  hostname: mage2dev
+  memory: 4096
+  cpus: 1
+  ip_address: 192.168.110.50
+  sync_type: nfs
+composer_auth:
+  # Magento repo auth (required for Magento 2 composer install) (see http://devdocs.magento.com/guides/v2.0/install-gde/prereq/connect-auth.html)
+  magentousername:
+  magentopassword:
+  # Github Oauth token (required for Magento 2 composer install) (see https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
+  githuboauth:
+magento_setup:
+  # Base url: excluding http:// and trailing / e.g. for http://www.magento.com/ use www.magento.com
+  base_url: mage2.dev
+  # Sample data: y or n (http://devdocs.magento.com/guides/v2.0/install-gde/install/web/install-web-sample-data.html)
+  sample_data: y
+  # Mode: developer or production (http://devdocs.magento.com/guides/v2.0/config-guide/bootstrap/magento-modes.html)
+  mode: developer
+magento_install:
+  admin_firstname: Admin
+  admin_lastname: User
+  admin_email: admin@example.com
+  admin_user: admin
+  admin_password: password1
+  backend_frontname: admin
+  default_country: GB
+  currency: GBP
+  language: en_GB
+  timezone: Europe/London
+  session_save: files
+  use_rewrites: 1
+  admin_session_lifetime: 86400
