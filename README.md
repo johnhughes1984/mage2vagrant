@@ -19,7 +19,8 @@ A Vagrant setup for a fully featured Magento 2 CE development environment
 ### Prerequisites
 * Install [Virtualbox](https://www.virtualbox.org) (v5.x)
 * Install [Vagrant](https://www.vagrantup.com/docs/installation/) (v1.8.4+)
-> IMPORTANT: this will NOT work with any version of Vagrant lower than the version mentioned above due to incompatible changes in Ubuntu Xenial
+
+    > IMPORTANT: this will NOT work with any version of Vagrant lower than the version mentioned above due to incompatible changes in Ubuntu Xenial
 * Install tools to manage SSH (Windows only)
 	* e.g. [Git Bash](https://git-for-windows.github.io), [Cygwin](https://www.cygwin.com) or [PuTTY and PuTTYGen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
