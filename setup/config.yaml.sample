@@ -19,6 +19,8 @@ magento_setup:
   # Mode: developer or production (http://devdocs.magento.com/guides/v2.0/config-guide/bootstrap/magento-modes.html)
   mode: developer
 magento_install:
+  # Install Magento: y or n. If 'n' Magento 2 will neither be downloaded or installed (inc. sample data), but vhost setup will still take place
+  install: y
   admin_firstname: Admin
   admin_lastname: User
   admin_email: admin@example.com

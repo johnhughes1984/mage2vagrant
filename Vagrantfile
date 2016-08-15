@@ -61,9 +61,13 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :shell, :path => "setup/scripts/nginx-config.sh", :args => "#{base_url} #{mage_mode}"
 
-  config.vm.provision :shell, :path => "setup/scripts/magento-setup.sh", :args => "#{base_url} #{install_sample_data}", :privileged => false
-  
-  config.vm.provision :shell, :path => "setup/scripts/magento-install.sh", :args => "#{magento_install['admin_firstname']} #{magento_install['admin_lastname']} #{magento_install['admin_email']} #{magento_install['admin_user']} #{magento_install['admin_password']} #{base_url} #{magento_install['backend_frontname']} #{magento_install['language']} #{magento_install['currency']} #{magento_install['timezone']} #{magento_install['session_save']} #{magento_install['use_rewrites']} #{magento_install['default_country']} #{magento_install['admin_session_lifetime']} #{mage_mode}", :privileged => false
+  if magento_install['install'] == 'y'
+
+    config.vm.provision :shell, :path => "setup/scripts/magento-setup.sh", :args => "#{base_url} #{install_sample_data}", :privileged => false
+
+    config.vm.provision :shell, :path => "setup/scripts/magento-install.sh", :args => "#{magento_install['admin_firstname']} #{magento_install['admin_lastname']} #{magento_install['admin_email']} #{magento_install['admin_user']} #{magento_install['admin_password']} #{base_url} #{magento_install['backend_frontname']} #{magento_install['language']} #{magento_install['currency']} #{magento_install['timezone']} #{magento_install['session_save']} #{magento_install['use_rewrites']} #{magento_install['default_country']} #{magento_install['admin_session_lifetime']} #{mage_mode}", :privileged => false
+
+  end
 
   config.vm.provision :shell, :path => "setup/scripts/cron-config.sh", :args => base_dir
 
