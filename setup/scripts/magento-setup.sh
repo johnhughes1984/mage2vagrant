@@ -8,9 +8,8 @@ echo "#############################"
 echo "##### MAGENTO DOWNLOAD ######"
 echo "#############################"
 composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition /var/www/$base_url/
-# Copy composer auth keys to Magento project var dir (for future composer updates, inc. sample data)
-mkdir -p /var/www/$base_url/var/composer_home/
-cp /home/vagrant/.config/composer/auth.json /var/www/$base_url/var/composer_home/
+# Copy composer auth keys to Magento project dir (for future composer updates, inc. sample data)
+cp ~vagrant/.composer/auth.json /var/www/$base_url/
 cd /var/www/$base_url
 # Ensure bin/magento is executable
 chmod +x ./bin/magento
