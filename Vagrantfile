@@ -55,6 +55,8 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "./setup/", "/vagrant/setup/", type: config_file['vm']['sync_type']
   config.vm.synced_folder "./magento/", base_dir, type: config_file['vm']['sync_type']
 
+  config.vm.provision :shell, :path => "setup/scripts/initial-config.sh"
+
   config.vm.provision :shell, :path => "setup/scripts/postfix-config.sh", :args => base_url
 
   config.vm.provision :shell, :path => "setup/scripts/composer-config.sh", :args => "#{composer_auth_magentousername} #{composer_auth_magentopassword} #{composer_auth_githuboauth}", :privileged => false
